@@ -18,6 +18,20 @@ The service is intentionally narrow:
 - loopback-only binding (`127.0.0.1`), CPU inference
 - one PaddleOCR inference at a time, with health checks staying responsive
 
+## Intended use
+
+- KanjiApp OCR is intended to run alongside
+  [KanjiApp](https://github.com/andres-foo/kanji-app) to provide automatic
+  Japanese text recognition when uploading screenshots for its screenshot
+  feature.
+- After installing the dependencies, double-click `start.bat`. The **Autofill**
+  buttons in KanjiApp's screenshot section will then fill in the Japanese input
+  for uploaded screenshots.
+
+The first launch downloads the Japanese OCR model, so the service can take a few
+minutes to become ready. Once KanjiApp reports OCR as ready, Autofill is
+available.
+
 ## Tested stack
 
 Tested on Windows with Python 3.11.9. The pinned dependency set targets
