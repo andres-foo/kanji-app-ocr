@@ -1,0 +1,18 @@
+# KanjiOCRVibe OCR - tested on Windows with Python 3.11.9.
+# PaddlePaddle 2.6.2 and the OpenCV 4.10 wheels require NumPy 1.26.x.
+fastapi==0.115.6
+numpy==1.26.4
+opencv-contrib-python==4.10.0.84
+opencv-python==4.10.0.84
+opencv-python-headless==4.10.0.84
+paddleocr==2.10.0
+paddlepaddle==2.6.2
+Pillow==13.0.0
+uvicorn==0.34.0
+
+# Critical transitive versions present in the tested environment.
+albumentations==2.0.8
+pydantic==2.14.3
+scikit-image==0.26.0
+scipy==1.17.1
+starlette==0.41.3
