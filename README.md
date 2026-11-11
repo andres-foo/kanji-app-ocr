@@ -1,8 +1,15 @@
-# KanjiOCRVibe OCR
+# KanjiApp OCR
 
-A small, standalone local HTTP service that runs Japanese OCR with PaddleOCR.
-It accepts raw JPEG bytes and returns recognized text lines, confidence scores,
-and axis-aligned bounding boxes.
+KanjiApp OCR is the standalone local Japanese OCR companion service for
+[KanjiApp](https://github.com/andres-foo/kanji-app). KanjiApp owns the
+screenshot queue, study data, UI, and kanji features; this repository provides
+only the OCR backend.
+
+It runs PaddleOCR behind a small HTTP API: raw JPEG bytes in, recognized
+Japanese text lines with confidence scores and axis-aligned bounding boxes out.
+It does not import KanjiApp, access its database, or otherwise depend on it, so
+the OCR service can be run and tested independently. KanjiApp connects to it
+over `http://127.0.0.1:8765`.
 
 The service is intentionally narrow:
 
@@ -66,9 +73,9 @@ C:\Users\<you>\.paddleocr\whl\cls\ch_ppocr_mobile_v2.0_cls_infer\
 ```
 
 If the user profile is not writable (for example, a sandboxed launcher), the
-service automatically falls back to a workspace cache under
-`KanjiOCRVibe\model_cache\`. Normal OCR operation is still local-only after the
-models are downloaded.
+service automatically falls back to a workspace cache under `model_cache\`
+next to the app. Normal OCR operation is still local-only after the models are
+downloaded.
 
 To pre-download without starting the HTTP server, run a one-off constructor in
 the activated environment:
